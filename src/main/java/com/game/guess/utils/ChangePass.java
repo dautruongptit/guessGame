@@ -1,4 +1,4 @@
-package com.game.guess;
+package com.game.guess.utils;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;

@@ -8,7 +8,7 @@ public class GuessApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GuessApplication.class, args);
-		System.out.println("123");
+		System.out.println("Run App Successfully");
 	}
 
 }

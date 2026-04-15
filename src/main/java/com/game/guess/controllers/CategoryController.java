@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -29,6 +30,12 @@ public class CategoryController {
                         .status(HttpStatus.OK)
                         .data(categories)
                 .build());
+    }
+    @PutMapping("/update-image")
+    public ResponseEntity<?> updateImageByName( @RequestParam String name, @RequestParam MultipartFile image
+    ) {
+        Category category = categoryService.updateImageByName(name, image);
+        return ResponseEntity.ok(category);
     }
 
 }

@@ -14,11 +14,9 @@ import java.util.List;
 @RequestMapping("/testCallAPI")
 public class testCallAPI {
     private final CategoryService categoryService;
-
     public testCallAPI(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
-
     @GetMapping
     public String test() {
         return "OK";
@@ -39,9 +37,7 @@ public class testCallAPI {
             @RequestParam String name,
             @RequestParam MultipartFile image
     ) {
-
         Category category = categoryService.updateImageByName(name, image);
-
         return ResponseEntity.ok(category);
     }
 }

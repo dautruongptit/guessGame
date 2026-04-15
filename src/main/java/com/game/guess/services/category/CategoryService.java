@@ -27,25 +27,32 @@ public class CategoryService implements ICategoryService {
     @Override
     public Category updateImageByName(String name, MultipartFile image) {
 
+        // ===== 1. Validate =====
         if (image == null || image.isEmpty()) {
             throw new RuntimeException("Image is required");
         }
 
-        Category category = categoryRepository.findByName(name)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+        try {
+            if (!image.getContentType().startsWith("image/")) {
+                throw new RuntimeException("Invalid image type");
+            }
 
-        // ===== Upload file mới =====
-        String newImage = saveFile(image);
+            // ===== 2. Find category =====
+            Category category = categoryRepository.findByName(name)
+                    .orElseThrow(() -> new RuntimeException("Category not found"));
 
-        // ===== Xóa file cũ =====
-        deleteFile(category.getIcon());
+            // ===== 3. Convert file → byte[] =====
+            byte[] imageBytes = image.getBytes();
 
-        // ===== Update DB =====
-        category.setIcon(newImage);
+            // ===== 4. Update DB =====
+            category.setIcon(imageBytes);
 
-        return categoryRepository.save(category);
+            return categoryRepository.save(category);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Update image failed");
+        }
     }
-
     // ===== SAVE FILE =====
     private String saveFile(MultipartFile file) {
         try {
