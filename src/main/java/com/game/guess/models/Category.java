@@ -11,24 +11,33 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Category {
+public class Category  extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "question_text", nullable = false)
-    private String questionText;
+    @Column(name = "question_vi", nullable = false)
+    private String questionVi;
 
-    @Column(name = "question_audio_url", nullable = false)
-    private String questionAudioUrl;
+    @Column(name = "audio_vi", nullable = false)
+    private String audioVi;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "description_vi", nullable = false)
+    private String descriptionVi;
 
-    @Column(name = "icon_url", nullable = false)
-    private String iconUrl;
+    @Column(name = "question_en", nullable = false)
+    private String questionEn;
+
+    @Column(name = "audio_en", nullable = false)
+    private String audioEn;
+
+    @Column(name = "description_en", nullable = false)
+    private String descriptionEn;
+
+    @Column(name = "icon", nullable = false)
+    private byte[] icon;
 
     @Column(name = "is_active", nullable = false)
     private String isActive;
