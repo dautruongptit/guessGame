@@ -21,24 +21,24 @@ public class Category  extends BaseEntity{
     @Column(name = "question_vi", nullable = false)
     private String questionVi;
 
-    @Column(name = "audio_vi", nullable = false)
+    @Column(name = "audio_vi", nullable = true)
     private String audioVi;
 
-    @Column(name = "description_vi", nullable = false)
+    @Column(name = "description_vi", nullable = true)
     private String descriptionVi;
 
-    @Column(name = "question_en", nullable = false)
+    @Column(name = "question_en", nullable = true)
     private String questionEn;
 
-    @Column(name = "audio_en", nullable = false)
-    private String audioEn;
+    @Column(name = "audio_en", nullable = true)
+    private byte[] audioEn;
 
-    @Column(name = "description_en", nullable = false)
+    @Column(name = "description_en", nullable = true)
     private String descriptionEn;
-
-    @Column(name = "icon", nullable = false)
+    @Lob
+    @Column(name = "icon", nullable = true)
     private byte[] icon;
 
-    @Column(name = "is_active", nullable = false)
-    private String isActive;
+    @Column(name = "is_active", nullable = true)
+    private Boolean isActive;
 }

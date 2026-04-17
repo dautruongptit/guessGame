@@ -18,6 +18,7 @@ public class Question extends BaseEntity {
     @Column(name = "category_id", nullable = false)
     private Long categoryId;
 
+    @Lob
     @Column(name = "image")
     private byte[] image;
 

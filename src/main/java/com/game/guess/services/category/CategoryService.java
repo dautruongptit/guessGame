@@ -50,6 +50,7 @@ public class CategoryService implements ICategoryService {
             return categoryRepository.save(category);
 
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("Update image failed");
         }
     }

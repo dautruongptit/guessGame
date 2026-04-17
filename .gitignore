@@ -14,6 +14,8 @@ target/
 .sts4-cache
 # Logs
 *.log
+logs/
+*.log.*
 ### IntelliJ IDEA ###
 .idea
 *.iws

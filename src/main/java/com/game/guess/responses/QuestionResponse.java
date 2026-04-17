@@ -1,21 +1,16 @@
 package com.game.guess.responses;
 
-import com.game.guess.dtos.QuestionDTO;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @AllArgsConstructor
-public class NextQuestionResponse {
+public class QuestionResponse {
+    private Long id;
     private Long categoryId;
-    private String questionText;
-    private String questionAudioBase64;      // ← Base64
-    private String questionAudio;
-    private String imageBase64;              // ← Base64 (chỉ 1 ảnh)
 
-    private List<QuestionDTO> options;
-    private Long correctQuestionId;
+    private String answerText;
 
+    private String audioBase64;      // ← Base64
 }
