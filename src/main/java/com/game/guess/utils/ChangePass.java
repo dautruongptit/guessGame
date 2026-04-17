@@ -12,8 +12,8 @@ public class ChangePass {
     private static int SaltSize = 128 / 8; // 128 bits
 
     public static void main(String[] args) throws Exception {
-        String username = "V10025911";
-        String password = "V10025911";
+        String username = "V10078057";
+        String password = "111111";
         String hashPassword = hashPassword(username, password);
 
         String Sql = "UPDATE BC_user_info SET LOGIN_PWD = '" + hashPassword +
